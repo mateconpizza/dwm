@@ -94,6 +94,8 @@ static const Rule rules[] = {
     { NULL,                 "spvim",        NULL,               SPTAG(10),  1,          1,          -1 },
     { NULL,                 "sptransen",    NULL,               SPTAG(11),  1,          1,          -1 },
     { NULL,                 "sptranses",    NULL,               SPTAG(12),  1,          1,          -1 },
+    { NULL,                 "spdefine",     NULL,               SPTAG(13),  1,          1,          -1 },
+    { NULL,                 "spdefinees",   NULL,               SPTAG(14),  1,          1,          -1 },
 };
 
 /* layout(s) */
@@ -187,6 +189,8 @@ static const Key keys[] = {
     { SUPERMODKEY,                  XK_y,       togglescratch,  {.ui = 10 } }, // spvim
     { SUPERMODKEY,                  XK_e,       togglescratch,  {.ui = 11 } }, // sptransen
     { SUPERMODKEY|ShiftMask,        XK_e,       togglescratch,  {.ui = 12 } }, // sptranses
+    { SUPERMODKEY,                  XK_d,       togglescratch,  {.ui = 13 } }, // spdefine
+    { SUPERMODKEY|ShiftMask,        XK_d,       togglescratch,  {.ui = 14 } }, // spdefinees
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)

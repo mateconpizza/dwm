@@ -17,6 +17,8 @@ const char *spcmd9[] = {TERMINAL, "-n", "spsf", "-g", "50x20", "-e", SHELL, "-c"
 const char *spcmd10[] = {TERMINAL, "-n", "spvim", "-g", "105x28", "-e", SHELL, "-c", "pad", NULL };
 const char *spcmd11[] = {TERMINAL, "-n", "sptransen", "-g", "120x30", "-e", SHELL, "-ic", "translate 'en:es'", NULL };
 const char *spcmd12[] = {TERMINAL, "-n", "sptranses", "-g", "120x30", "-e", SHELL, "-ic", "translate", NULL };
+const char *spcmd13[] = {TERMINAL, "-n", "spdefine", "-g", "120x30", "-e", SHELL, "-ic", "define", NULL };
+const char *spcmd14[] = {TERMINAL, "-n", "spdefinees", "-g", "120x30", "-e", SHELL, "-ic", "define es:", NULL };
 static Sp scratchpads[] = {
     /* name          cmd  */
     {"spterm",      spcmd0},    // simple terminal
@@ -32,4 +34,6 @@ static Sp scratchpads[] = {
     {"spvim",       spcmd10},   // scratchpad for coding
     {"sptransen",   spcmd11},   // translate 'en->es' | interactive shell
     {"sptranses",   spcmd12},   // translate 'es->en' | interactive shell
+    {"sptranses",   spcmd13},   // define 'en' | interactive shell
+    {"sptranses",   spcmd14},   // define 'es' | interactive shell
 };
