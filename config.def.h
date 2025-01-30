@@ -5,6 +5,9 @@
 #define TERMCLASS "St"
 #define SHELL "zsh"
 
+/* scratchpads */
+#include "scratchpads.h"
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const int startwithgaps[]    = { 1 };	/* 1 means gaps are used by default, this can be customized for each tag */
@@ -38,36 +41,6 @@ static const unsigned int alphas[][3]   = {
     /*               fg      bg        border*/
     [SchemeNorm] = { OPAQUE, baralpha, borderalpha },
     [SchemeSel]  = { OPAQUE, baralpha, borderalpha },
-};
-
-typedef struct {
-    const char *name;
-    const void *cmd;
-} Sp;
-const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-c", "spterm", "-g", "110x30", NULL };
-const char *spcmd2[] = {TERMINAL, "-n", "spfm", "-g", "120x25", "-e", SHELL, "-c", "nnn.sh", NULL };
-const char *spcmd3[] = {TERMINAL, "-n", "spmusic", "-c", "spmusic", "-g", "120x25", "-e", "ncmpcpp-ueberzug", NULL};
-const char *spcmd4[] = {TERMINAL, "-n", "spnews", "-c", "spnews", "-g", "130x30", "-e", SHELL,  "-c", "newsboat", NULL};
-const char *spcmd5[] = {TERMINAL, "-n", "sphtop", "-c", "sphtop", "-g", "130x30", "-e", SHELL, "-c", "htop", NULL };
-const char *spcmd6[] = {TERMINAL, "-n", "spmarks", "-c", "spmarks", "-g", "110x22", "-e", SHELL, "-c", "gms", NULL };
-const char *spcmd7[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "28x8", "-e", "bc", "-lq", NULL };
-const char *spcmd8[] = {TERMINAL, "-n", "spai", "-c", "spai", "-g", "130x30", "-e", SHELL, "-c", "ollama.sh", NULL };
-const char *spcmd9[] = {TERMINAL, "-n", "spsf", "-g", "50x20", "-e", SHELL, "-c", "share-files", NULL };
-const char *spcmd10[] = {TERMINAL, "-n", "spsf", "-g", "50x20", "-e", SHELL, "-c", "share-files --send", NULL };
-const char *spcmd11[] = {TERMINAL, "-n", "spvim", "-g", "105x28", "-e", SHELL, "-c", "pad", NULL };
-static Sp scratchpads[] = {
-    /* name          cmd  */
-    {"spterm",      spcmd1},
-    {"spfm",        spcmd2},
-    {"spmusic",     spcmd3},
-    {"spnews",      spcmd4},
-    {"sphtop",      spcmd5},
-    {"spmarks",     spcmd6},
-    {"spcalc",      spcmd7},
-    {"spai",        spcmd8},
-    {"spsf",        spcmd9},
-    {"spsf",        spcmd10},
-    {"spvim",       spcmd11},
 };
 
 /* tagging */
@@ -104,10 +77,9 @@ static const Rule rules[] = {
     { "Nsxiv",              "nsxiv",        NULL,               0,          1,          1,          -1 },
     { "Nsxiv",              "fontpreview",  NULL,               0,          0,          0,          -1 },
     { "Dragon-drop",        "dragon-drop",  NULL,               ~0,         0,          0,          -1 },
-    { "sptransen",          "sptransen",    NULL,               0,          1,          1,          -1 },
     { NULL,                 "sptrans",      "term-trans.sh",    0,          1,          1,          -1 },
     { "spfloat",            "spfloat",      NULL,               0,          1,          1,          -1 },
-    { "sppass",             "sppass",      NULL,               0,          1,          1,          -1 },
+    { "sppass",             "sppass",       NULL,               0,          1,          1,          -1 },
     // scratchpads
     { NULL,                 "spterm",       NULL,               SPTAG(0),   0,          1,          -1 },
     { NULL,                 "spfm",         NULL,               SPTAG(1),   0,          1,          -1 },
@@ -120,6 +92,8 @@ static const Rule rules[] = {
     { NULL,                 "spsf",         NULL,               SPTAG(8),   0,          1,          -1 },
     { NULL,                 "spsf",         NULL,               SPTAG(9),   0,          1,          -1 },
     { NULL,                 "spvim",        NULL,               SPTAG(10),  1,          1,          -1 },
+    { NULL,                 "sptransen",    NULL,               SPTAG(11),  1,          1,          -1 },
+    { NULL,                 "sptranses",    NULL,               SPTAG(12),  1,          1,          -1 },
 };
 
 /* layout(s) */
@@ -204,13 +178,15 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_y,       togglescratch,  {.ui = 1 } }, // nnn.sh
     { MODKEY,                       XK_x,       togglescratch,  {.ui = 2 } }, // mpd
     { MODKEY|ShiftMask,             XK_x,       togglescratch,  {.ui = 3 } }, // newsboat
-    { SUPERMODKEY,                  XK_y,       togglescratch,  {.ui = 10 } }, // spvim
     { SUPERMODKEY|ShiftMask,        XK_y,       togglescratch,  {.ui = 4 } }, // sphtop
     { SUPERMODKEY,                  XK_n,       togglescratch,  {.ui = 5 } }, // bookmarks
     { SUPERMODKEY,                  XK_c,       togglescratch,  {.ui = 6 } }, // spcalc
     { SUPERMODKEY,                  XK_i,       togglescratch,  {.ui = 7 } }, // spai
     { SUPERMODKEY,                  XK_o,       togglescratch,  {.ui = 8 } }, // spsf
     { SUPERMODKEY|ShiftMask,        XK_o,       togglescratch,  {.ui = 9 } }, // spsf localsend
+    { SUPERMODKEY,                  XK_y,       togglescratch,  {.ui = 10 } }, // spvim
+    { SUPERMODKEY,                  XK_e,       togglescratch,  {.ui = 11 } }, // sptransen
+    { SUPERMODKEY|ShiftMask,        XK_e,       togglescratch,  {.ui = 12 } }, // sptranses
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)
