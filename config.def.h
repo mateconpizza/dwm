@@ -10,7 +10,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const int startwithgaps[]    = { 1 };	/* 1 means gaps are used by default, this can be customized for each tag */
+static const int startwithgaps[]    = { 1 };    /* 1 means gaps are used by default, this can be customized for each tag */
 static const unsigned int gappx[]   = { 15 };   /* default gap between windows in pixels, this can be customized for each tag */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -63,6 +63,7 @@ static const Rule rules[] = {
     { "Signal",             NULL,           NULL,               1 << 6,     0,          0,          -1 },
     { "mpv",                NULL,           NULL,               1 << 5,     0,          0,          -1 },
     { "tidal-hifi",         "tidal-hifi",   NULL,               1 << 3,     0,          0,          -1 },
+    { "obs",                "obs",          NULL,               1 << 4,     0,          0,          -1 },
     { "Galculator",         "galculator",   NULL,               0,          0,          1,          -1 },
     { "Gucharmap",          NULL,           NULL,               0,          1,          1,          -1 },
     { "Peek",               "peek",         NULL,               0,          0,          1,          -1 },
@@ -80,7 +81,9 @@ static const Rule rules[] = {
     { NULL,                 "sptrans",      "term-trans.sh",    0,          1,          1,          -1 },
     { "spfloat",            "spfloat",      NULL,               0,          1,          1,          -1 },
     { "sppass",             "sppass",       NULL,               0,          1,          1,          -1 },
-    // scratchpads
+    /* ------------------------ */
+    /*      scratchpads         */
+    /* ------------------------ */
     { NULL,                 "spterm",       NULL,               SPTAG(0),   0,          1,          -1 },
     { NULL,                 "spfm",         NULL,               SPTAG(1),   0,          1,          -1 },
     { NULL,                 "spmusic",      NULL,               SPTAG(2),   1,          1,          -1 },
@@ -102,7 +105,7 @@ static const Rule rules[] = {
 static const float mfact        = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster        = 1;    /* number of clients in master area */
 static const int resizehints    = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int lockfullscreen = 1;    /* 1 will force focus on the fullscreen window */
 
 #include "horizgrid.c"
 static const Layout layouts[] = {
@@ -154,14 +157,6 @@ static const Key keys[] = {
     { MODKEY,                       XK_Return,  zoom,           {0} },
     { MODKEY,                       XK_Tab,     view,           {0} },
     { MODKEY|ShiftMask,             XK_c,       killclient,     {0} },
-    { MODKEY,                       XK_t,       setlayout,      {.v = &layouts[0]} }, /* tile-layout */
-    { MODKEY,                       XK_f,       setlayout,      {.v = &layouts[1]} }, /* floating-layout */
-    { MODKEY,                       XK_m,       setlayout,      {.v = &layouts[2]} }, /* monocle-layout */
-    { MODKEY,                       XK_o,       setlayout,      {.v = &layouts[3]} }, /* horizgrid-layout */
-    { MODKEY,                       XK_r,       setlayout,      {.v = &layouts[4]} }, /* deck-layout */
-    { MODKEY,                       XK_g,       setlayout,      {.v = &layouts[5]} }, /* columns-layout */
-    { MODKEY,                       XK_u,       setlayout,      {.v = &layouts[6]} }, /* centeredmaster-layout */
-    { MODKEY|ShiftMask,             XK_u,       setlayout,      {.v = &layouts[7]} }, /* centeredfloatingmaster-layout */
     { MODKEY,                       XK_space,   setlayout,      {0} },
     { MODKEY|ShiftMask,             XK_space,   togglefloating, {0} },
     { MODKEY,                       XK_0,       view,           {.ui = ~0 } },
@@ -174,23 +169,37 @@ static const Key keys[] = {
     { MODKEY,                       XK_equal,   setgaps,        {.i = +5 } },
     { MODKEY|ShiftMask,             XK_minus,   setgaps,        {.i = GAP_RESET } },
     { MODKEY|ShiftMask,             XK_equal,   setgaps,        {.i = GAP_TOGGLE} },
-    { MODKEY,                       XK_F5,      xrdb,           {.v = NULL } },
+    { MODKEY,                       XK_F5,      xrdb,           {.v = NULL } },         /* restart dwm */
     { SUPERMODKEY,                  XK_s,       togglesticky,   {0} },
-    { MODKEY,                       XK_y,       togglescratch,  {.ui = 0 } }, // terminal
-    { MODKEY|ShiftMask,             XK_y,       togglescratch,  {.ui = 1 } }, // nnn.sh
-    { MODKEY,                       XK_x,       togglescratch,  {.ui = 2 } }, // mpd
-    { MODKEY|ShiftMask,             XK_x,       togglescratch,  {.ui = 3 } }, // newsboat
-    { SUPERMODKEY|ShiftMask,        XK_y,       togglescratch,  {.ui = 4 } }, // sphtop
-    { SUPERMODKEY,                  XK_n,       togglescratch,  {.ui = 5 } }, // bookmarks
-    { SUPERMODKEY,                  XK_c,       togglescratch,  {.ui = 6 } }, // spcalc
-    { SUPERMODKEY,                  XK_i,       togglescratch,  {.ui = 7 } }, // spai
-    { SUPERMODKEY,                  XK_o,       togglescratch,  {.ui = 8 } }, // spsf
-    { SUPERMODKEY|ShiftMask,        XK_o,       togglescratch,  {.ui = 9 } }, // spsf localsend
-    { SUPERMODKEY,                  XK_y,       togglescratch,  {.ui = 10 } }, // spvim
-    { SUPERMODKEY,                  XK_e,       togglescratch,  {.ui = 11 } }, // sptransen
-    { SUPERMODKEY|ShiftMask,        XK_e,       togglescratch,  {.ui = 12 } }, // sptranses
-    { SUPERMODKEY,                  XK_d,       togglescratch,  {.ui = 13 } }, // spdefine
-    { SUPERMODKEY|ShiftMask,        XK_d,       togglescratch,  {.ui = 14 } }, // spdefinees
+    /* ------------------------ */
+    /*          layouts         */
+    /* ------------------------ */
+    { MODKEY,                       XK_t,       setlayout,      {.v = &layouts[0]} },   /* tile-layout */
+    { MODKEY,                       XK_f,       setlayout,      {.v = &layouts[1]} },   /* floating-layout */
+    { MODKEY,                       XK_m,       setlayout,      {.v = &layouts[2]} },   /* monocle-layout */
+    { MODKEY,                       XK_o,       setlayout,      {.v = &layouts[3]} },   /* horizgrid-layout */
+    { MODKEY,                       XK_r,       setlayout,      {.v = &layouts[4]} },   /* deck-layout */
+    { MODKEY,                       XK_g,       setlayout,      {.v = &layouts[5]} },   /* columns-layout */
+    { MODKEY,                       XK_u,       setlayout,      {.v = &layouts[6]} },   /* centeredmaster-layout */
+    { MODKEY|ShiftMask,             XK_u,       setlayout,      {.v = &layouts[7]} },   /* centeredfloatingmaster-layout */
+    /* ------------------------ */
+    /*      scratchpads         */
+    /* ------------------------ */
+    { MODKEY,                       XK_y,       togglescratch,  {.ui = SP_TERM } },
+    { MODKEY|ShiftMask,             XK_y,       togglescratch,  {.ui = SP_FILE } },
+    { MODKEY,                       XK_x,       togglescratch,  {.ui = SP_MUSIC } },
+    { MODKEY|ShiftMask,             XK_x,       togglescratch,  {.ui = SP_NEWS } },
+    { SUPERMODKEY|ShiftMask,        XK_y,       togglescratch,  {.ui = SP_HTOP } },
+    { SUPERMODKEY,                  XK_n,       togglescratch,  {.ui = SP_MARKS } },
+    { SUPERMODKEY,                  XK_c,       togglescratch,  {.ui = SP_CALC } },
+    { SUPERMODKEY,                  XK_i,       togglescratch,  {.ui = SP_CHAT } },
+    { SUPERMODKEY,                  XK_o,       togglescratch,  {.ui = SP_SHARE } },
+    { SUPERMODKEY|ShiftMask,        XK_o,       togglescratch,  {.ui = SP_SHARESEND } },
+    { SUPERMODKEY,                  XK_y,       togglescratch,  {.ui = SP_NVIM } },
+    { SUPERMODKEY,                  XK_e,       togglescratch,  {.ui = SP_TRANS } },
+    { SUPERMODKEY|ShiftMask,        XK_e,       togglescratch,  {.ui = SP_TRANSES } },
+    { SUPERMODKEY,                  XK_d,       togglescratch,  {.ui = SP_DEFINE } },
+    { SUPERMODKEY|ShiftMask,        XK_d,       togglescratch,  {.ui = SP_DEFINEES } },
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)

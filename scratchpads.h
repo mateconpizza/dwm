@@ -1,5 +1,10 @@
 // scratchpads.h
 
+/* constants */
+#define TERMINAL "st"
+#define TERMCLASS "St"
+#define SHELL "zsh"
+
 typedef struct {
     const char *name;
     const void *cmd;
@@ -11,7 +16,7 @@ const char *spcmd3[] = {TERMINAL, "-n", "spnews", "-c", "spnews", "-g", "130x30"
 const char *spcmd4[] = {TERMINAL, "-n", "sphtop", "-c", "sphtop", "-g", "130x30", "-e", SHELL, "-c", "htop", NULL };
 const char *spcmd5[] = {TERMINAL, "-n", "spmarks", "-c", "spmarks", "-g", "110x22", "-e", SHELL, "-c", "gms", NULL };
 const char *spcmd6[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "28x8", "-e", "bc", "-lq", NULL };
-const char *spcmd7[] = {TERMINAL, "-n", "spai", "-c", "spai", "-g", "130x30", "-e", SHELL, "-c", "ollama.sh", NULL };
+const char *spcmd7[] = {TERMINAL, "-n", "spai", "-c", "spai", "-g", "130x30", "-e", SHELL, "-ic", "ollama.sh", NULL };
 const char *spcmd8[] = {TERMINAL, "-n", "spsf", "-g", "50x20", "-e", SHELL, "-c", "share-files", NULL };
 const char *spcmd9[] = {TERMINAL, "-n", "spsf", "-g", "50x20", "-e", SHELL, "-c", "share-files --send", NULL };
 const char *spcmd10[] = {TERMINAL, "-n", "spvim", "-g", "105x28", "-e", SHELL, "-c", "pad", NULL };
@@ -37,3 +42,22 @@ static Sp scratchpads[] = {
     {"sptranses",   spcmd13},   // define 'en' | interactive shell
     {"sptranses",   spcmd14},   // define 'es' | interactive shell
 };
+
+enum {
+    SP_TERM = 0,
+    SP_FILE,
+    SP_MUSIC,
+    SP_NEWS,
+    SP_HTOP,
+    SP_MARKS,
+    SP_CALC,
+    SP_CHAT,
+    SP_SHARE,
+    SP_SHARESEND,
+    SP_NVIM,
+    SP_TRANS,
+    SP_TRANSES,
+    SP_DEFINE,
+    SP_DEFINEES,
+};
+
