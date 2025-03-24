@@ -3,7 +3,6 @@
 /* constants */
 #define TERMINAL "st"
 #define TERMCLASS "St"
-#define SHELL "zsh"
 
 /* scratchpads */
 #include "scratchpads.h"
@@ -54,6 +53,8 @@ static const Rule rules[] = {
     { "Gimp",               NULL,           NULL,               0,          0,          1,          -1 },
     { "Firefox",            NULL,           NULL,               1 << 8,     0,          0,          -1 },
     { "zen",                NULL,           NULL,               1 << 8,     0,          0,          -1 },
+    { "floorp",             NULL,           NULL,               1 << 8,     0,          0,          -1 },
+    { "icecat-default",     NULL,           NULL,               1 << 8,     0,          0,          -1 },
     { "zen",                NULL,           "About Zen Browser",1 << 8,     1,          1,          -1 },
     { "LibreWolf",          NULL,           NULL,               1 << 7,     0,          0,          -1 },
     { "Chromium",           NULL,           NULL,               1 << 7,     0,          0,          -1 },

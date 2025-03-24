@@ -3,7 +3,7 @@
 /* constants */
 #define TERMINAL "st"
 #define TERMCLASS "St"
-#define SHELL "zsh"
+#define SHELL "bash"
 
 typedef struct {
     const char *name;
