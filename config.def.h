@@ -44,63 +44,8 @@ static const unsigned int alphas[][3]   = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const Rule rules[] = {
-    /* xprop(1):
-     *  WM_CLASS(STRING) = instance, class
-     *  WM_NAME(STRING) = title
-     */
-    /* class                instance        title               tags mask   iscentered  isfloating  monitor */
-    { "Gimp",               NULL,           NULL,               0,          0,          1,          -1 },
-    { "Firefox",            NULL,           NULL,               1 << 8,     0,          0,          -1 },
-    { "zen",                NULL,           NULL,               1 << 8,     0,          0,          -1 },
-    { "floorp",             NULL,           NULL,               1 << 8,     0,          0,          -1 },
-    { "icecat-default",     NULL,           NULL,               1 << 8,     0,          0,          -1 },
-    { "zen",                NULL,           "About Zen Browser",1 << 8,     1,          1,          -1 },
-    { "LibreWolf",          NULL,           NULL,               1 << 7,     0,          0,          -1 },
-    { "Chromium",           NULL,           NULL,               1 << 7,     0,          0,          -1 },
-    { "Tor Browser",        NULL,           NULL,               1 << 7,     0,          0,          -1 },
-    { "Tor Browser",        NULL,           "About Tor Browser",1 << 7,     1,          1,          -1 },
-    { "TelegramDesktop",    NULL,           NULL,               1 << 6,     0,          0,          -1 },
-    { "Signal",             NULL,           NULL,               1 << 6,     0,          0,          -1 },
-    { "mpv",                NULL,           NULL,               1 << 5,     0,          0,          -1 },
-    { "tidal-hifi",         "tidal-hifi",   NULL,               1 << 3,     0,          0,          -1 },
-    { "obs",                "obs",          NULL,               1 << 4,     0,          0,          -1 },
-    { "Galculator",         "galculator",   NULL,               0,          0,          1,          -1 },
-    { "Gucharmap",          NULL,           NULL,               0,          1,          1,          -1 },
-    { "Peek",               "peek",         NULL,               0,          0,          1,          -1 },
-    { "Tk",                 "tk",           NULL,               0,          1,          1,          -1 },
-    { "Sxiv",               NULL,           NULL,               0,          0,          1,          -1 },
-    { "Nitrogen",           NULL,           NULL,               0,          1,          1,          -1 },
-    { "Nsxiv",              NULL,           NULL,               0,          0,          1,          -1 },
-    { "GoWindow",           NULL,           NULL,               0,          0,          1,          -1 },
-    { NULL,                 "screensaver",  NULL,               0,          0,          0,          -1 },
-    { NULL,                 "splogs",       "splogs",           0,          1,          1,          -1 },
-    { "Display",            "display",      NULL,               0,          1,          1,          -1 },
-    { "Nsxiv",              "nsxiv",        NULL,               0,          1,          1,          -1 },
-    { "Nsxiv",              "fontpreview",  NULL,               0,          0,          0,          -1 },
-    { "Dragon-drop",        "dragon-drop",  NULL,               ~0,         0,          0,          -1 },
-    { NULL,                 "sptrans",      "term-trans.sh",    0,          1,          1,          -1 },
-    { "spfloat",            "spfloat",      NULL,               0,          1,          1,          -1 },
-    { "sppass",             "sppass",       NULL,               0,          1,          1,          -1 },
-    /* ------------------------ */
-    /*      scratchpads         */
-    /* ------------------------ */
-    { NULL,                 "spterm",       NULL,               SPTAG(0),   0,          1,          -1 },
-    { NULL,                 "spfm",         NULL,               SPTAG(1),   0,          1,          -1 },
-    { NULL,                 "spmusic",      NULL,               SPTAG(2),   1,          1,          -1 },
-    { NULL,                 "spnews",       NULL,               SPTAG(3),   0,          1,          -1 },
-    { NULL,                 "sphtop",       NULL,               SPTAG(4),   0,          1,          -1 },
-    { NULL,                 "spmarks",      NULL,               SPTAG(5),   1,          1,          -1 },
-    { TERMCLASS,            "spcalc",       NULL,               SPTAG(6),   1,          1,          -1 },
-    { NULL,                 "spai",         NULL,               SPTAG(7),   0,          1,          -1 },
-    { NULL,                 "spsf",         NULL,               SPTAG(8),   0,          1,          -1 },
-    { NULL,                 "spsf",         NULL,               SPTAG(9),   0,          1,          -1 },
-    { NULL,                 "spvim",        NULL,               SPTAG(10),  1,          1,          -1 },
-    { NULL,                 "sptransen",    NULL,               SPTAG(11),  1,          1,          -1 },
-    { NULL,                 "sptranses",    NULL,               SPTAG(12),  1,          1,          -1 },
-    { NULL,                 "spdefine",     NULL,               SPTAG(13),  1,          1,          -1 },
-    { NULL,                 "spdefinees",   NULL,               SPTAG(14),  1,          1,          -1 },
-};
+/* tagging rules */
+#include "tagsrules.h"
 
 /* layout(s) */
 static const float mfact        = 0.55; /* factor of master area size [0.05..0.95] */
