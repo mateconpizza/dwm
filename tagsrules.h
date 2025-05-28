@@ -16,6 +16,7 @@ static const Rule rules[] = {
     /*                                              BROWSER                                             */
     /* ------------------------------------------------------------------------------------------------ */
     /* class                instance        title               tags mask   iscentered  isfloating  monitor */
+    { "qutebrowser",        NULL,           NULL,               1 << 8,     0,          0,          -1 },
     { "Firefox",            NULL,           NULL,               1 << 8,     0,          0,          -1 },
     { "floorp",             NULL,           NULL,               1 << 8,     0,          0,          -1 },
     { "floorp",             NULL,           "About Ablaze",     1 << 8,     1,          1,          -1 },

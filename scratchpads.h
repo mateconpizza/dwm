@@ -40,7 +40,7 @@ static Sp scratchpads[] = {
     {"sptransen",   spcmd11},   // translate 'en->es' | interactive shell
     {"sptranses",   spcmd12},   // translate 'es->en' | interactive shell
     {"sptranses",   spcmd13},   // define 'en' | interactive shell
-    {"sptranses",   spcmd14},   // define 'es' | interactive shell
+    "sptranses",   spcmd14},   // define 'es' | interactive shell
 };
 
 enum {

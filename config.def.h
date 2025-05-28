@@ -8,7 +8,7 @@
 #include "scratchpads.h"
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 1.5;      /* border pixel of windows */
 static const int startwithgaps[]    = { 1 };    /* 1 means gaps are used by default, this can be customized for each tag */
 static const unsigned int gappx[]   = { 15 };   /* default gap between windows in pixels, this can be customized for each tag */
 static const unsigned int snap      = 32;       /* snap pixel */
