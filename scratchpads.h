@@ -17,8 +17,8 @@ const char *spcmd4[] = {TERMINAL, "-n", "sphtop", "-c", "sphtop", "-g", "130x30"
 const char *spcmd5[] = {TERMINAL, "-n", "spmarks", "-c", "spmarks", "-g", "110x22", "-e", SHELL, "-c", "gms", NULL };
 const char *spcmd6[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "28x8", "-e", "bc", "-lq", NULL };
 const char *spcmd7[] = {TERMINAL, "-n", "spai", "-c", "spai", "-g", "130x30", "-e", SHELL, "-ic", "ollama.sh", NULL };
-const char *spcmd8[] = {TERMINAL, "-n", "spsf", "-g", "50x20", "-e", SHELL, "-c", "share-files", NULL };
-const char *spcmd9[] = {TERMINAL, "-n", "spsf", "-g", "50x20", "-e", SHELL, "-c", "share-files --send", NULL };
+const char *spcmd8[] = {TERMINAL, "-n", "spsf", "-g", "95x22", "-e", SHELL, "-c", "share-files", NULL };
+const char *spcmd9[] = {TERMINAL, "-n", "spsf", "-g", "95x22", "-e", SHELL, "-c", "share-files --send", NULL };
 const char *spcmd10[] = {TERMINAL, "-n", "spvim", "-g", "105x28", "-e", SHELL, "-c", "pad", NULL };
 const char *spcmd11[] = {TERMINAL, "-n", "sptransen", "-g", "120x30", "-e", SHELL, "-ic", "translate 'en:es'", NULL };
 const char *spcmd12[] = {TERMINAL, "-n", "sptranses", "-g", "120x30", "-e", SHELL, "-ic", "translate", NULL };
@@ -40,7 +40,7 @@ static Sp scratchpads[] = {
     {"sptransen",   spcmd11},   // translate 'en->es' | interactive shell
     {"sptranses",   spcmd12},   // translate 'es->en' | interactive shell
     {"sptranses",   spcmd13},   // define 'en' | interactive shell
-    "sptranses",   spcmd14},   // define 'es' | interactive shell
+    {"sptranses",   spcmd14},   // define 'es' | interactive shell
 };
 
 enum {
