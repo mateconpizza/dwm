@@ -36,6 +36,7 @@ static const Rule rules[] = {
     /* class                instance            title               tags mask   iscentered  isfloating  monitor */
     { "Gimp",               NULL,               NULL,                   0,          0,          1,          -1 },
     { "TelegramDesktop",    NULL,               NULL,                   1 << 6,     0,          0,          -1 },
+    { "WhatsApp",           "whatsapp",         "WhatsApp",             1 << 6,     0,          0,          -1 },
     { "Signal",             NULL,               NULL,                   1 << 6,     0,          0,          -1 },
     { "mpv",                NULL,               NULL,                   1 << 5,     0,          0,          -1 },
     { "tidal-hifi",         "tidal-hifi",       NULL,                   1 << 3,     0,          0,          -1 },
