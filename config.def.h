@@ -31,22 +31,22 @@ static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#005577";
 static char selbgcolor[]            = "#005577";
-static char termcol0[] = "#000000"; /* black   */
-static char termcol1[] = "#ff0000"; /* red     */
-static char termcol2[] = "#33ff00"; /* green   */
-static char termcol3[] = "#ff0099"; /* yellow  */
-static char termcol4[] = "#0066ff"; /* blue    */
-static char termcol5[] = "#cc00ff"; /* magenta */
-static char termcol6[] = "#00ffff"; /* cyan    */
-static char termcol7[] = "#d0d0d0"; /* white   */
-static char termcol8[]  = "#808080"; /* black   */
-static char termcol9[]  = "#ff0000"; /* red     */
-static char termcol10[] = "#33ff00"; /* green   */
-static char termcol11[] = "#ff0099"; /* yellow  */
-static char termcol12[] = "#0066ff"; /* blue    */
-static char termcol13[] = "#cc00ff"; /* magenta */
-static char termcol14[] = "#00ffff"; /* cyan    */
-static char termcol15[] = "#ffffff"; /* white   */
+static char termcol0[]              = "#000000"; /* black   */
+static char termcol1[]              = "#ff0000"; /* red     */
+static char termcol2[]              = "#33ff00"; /* green   */
+static char termcol3[]              = "#ff0099"; /* yellow  */
+static char termcol4[]              = "#0066ff"; /* blue    */
+static char termcol5[]              = "#cc00ff"; /* magenta */
+static char termcol6[]              = "#00ffff"; /* cyan    */
+static char termcol7[]              = "#d0d0d0"; /* white   */
+static char termcol8[]              = "#808080"; /* black   */
+static char termcol9[]              = "#ff0000"; /* red     */
+static char termcol10[]             = "#33ff00"; /* green   */
+static char termcol11[]             = "#ff0099"; /* yellow  */
+static char termcol12[]             = "#0066ff"; /* blue    */
+static char termcol13[]             = "#cc00ff"; /* magenta */
+static char termcol14[]             = "#00ffff"; /* cyan    */
+static char termcol15[]             = "#ffffff"; /* white   */
 static char *termcolor[] = {
   termcol0,
   termcol1,
@@ -179,7 +179,7 @@ static const Key keys[] = {
     { SUPERMODKEY,                  XK_e,       togglescratch,  {.ui = SP_TRANS } },
     { SUPERMODKEY|ShiftMask,        XK_e,       togglescratch,  {.ui = SP_TRANSES } },
     { SUPERMODKEY,                  XK_d,       togglescratch,  {.ui = SP_DEFINE } },
-    { SUPERMODKEY|ShiftMask,        XK_d,       togglescratch,  {.ui = SP_DEFINEES } },
+    { SUPERMODKEY|ShiftMask,        XK_m,       togglescratch,  {.ui = SP_MIXER } },
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)

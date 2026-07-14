@@ -29,6 +29,7 @@ static const Rule rules[] = {
     { "Chromium",           "chromium",         NULL,                   1 << 7,     0,          0,          -1 },
     { "Tor Browser",        NULL,               NULL,                   1 << 7,     0,          0,          -1 },
     { "Tor Browser",        NULL,               "About Tor Browser",    1 << 7,     1,          1,          -1 },
+    { "Helium",             "helium",           NULL,                   1 << 7,     0,          0,          -1 },
 
     /* ------------------------------------------------------------------------------------------------ */
     /*                                              APPs                                                */
@@ -58,10 +59,6 @@ static const Rule rules[] = {
     { "Dragon-drop",        "dragon-drop",      NULL,                   ~0,         0,          0,          -1 },
     { "Gcr-prompter",       "gcr-prompter",     NULL,                   0,          1,          1,          -1 },
 
-    { "chatty-Chatty",      "chatty-Chatty",    NULL,                   1 << 5,     0,          0,          -1 },
-    { "chatty-Chatty",      "chatty-Chatty",    "win",                  1 << 5,     0,          1,          -1 },
-    { "chatty-Chatty",      "chatty-Chatty",    "Settings",             1 << 5,     1,          1,          -1 },
-
     /* ------------------------------------------------------------------------------------------------ */
     /*                                              SCRATCHPADS                                         */
     /* ------------------------------------------------------------------------------------------------ */
@@ -81,6 +78,7 @@ static const Rule rules[] = {
     { NULL,                 "sptranses",    NULL,               SPTAG(12),  1,          1,          -1 },
     { NULL,                 "spdefine",     NULL,               SPTAG(13),  1,          1,          -1 },
     { NULL,                 "spdefinees",   NULL,               SPTAG(14),  1,          1,          -1 },
+    { NULL,                 "spmixer",      NULL,               SPTAG(15),  1,          1,          -1 },
     { NULL,                 "sptrans",      "term-trans.sh",    0,          1,          1,          -1 },
     { "spfloat",            "spfloat",      NULL,               0,          1,          1,          -1 },
 };
